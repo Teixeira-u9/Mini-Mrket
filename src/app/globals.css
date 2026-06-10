@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: theme("colors.paper");
+  color: theme("colors.ink");
+  /* Textura sutil de papel: puntos tenues que dan calidez sin ruido visual */
+  background-image: radial-gradient(theme("colors.clay") 0.5px, transparent 0.5px);
+  background-size: 22px 22px;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Etiqueta tipo sello/kicker usada en títulos de sección */
+  .kicker {
+    @apply inline-flex items-center gap-2 rounded-full border border-leaf/25 bg-leaf/5
+      px-3 py-1 text-xs font-semibold uppercase tracking-wider text-leaf-dark;
+  }
+
+  .card {
+    @apply rounded-xl2 border border-clay bg-paper shadow-card;
+  }
+}
+
+/* Scrollbar discreta para los chips de categoría */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
